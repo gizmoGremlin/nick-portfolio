@@ -215,7 +215,7 @@ export default () => (
               alt="husky"
             ></img>
             <ProjectName href="https://github.com/gizmoGremlin/the_well_admin_dashboard">
-              Dashboard
+              A Dashboard
             </ProjectName>
           </ProjectItem>
           <ProjectItem>
@@ -225,7 +225,7 @@ export default () => (
               alt="poodle"
             ></img>
             <ProjectName href="https://github.com/gizmoGremlin/venison">
-              Recipe app
+              A Recipe app
             </ProjectName>
           </ProjectItem>
         </ProjectUl>
