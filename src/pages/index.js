@@ -179,8 +179,8 @@ export default () => (
         </h2>
         <Leading>
           Hi, I'm Nick. I'm a full-stack web and mobile developer. I specialize
-          in building cross-platform Apps with React Native, as well as, native
-          Android Apps
+          in building web apps, cross-platform mobile Apps and native Android
+          Apps
         </Leading>
 
         <Button href="/#portfolio">view my work</Button>
@@ -205,7 +205,7 @@ export default () => (
               alt="rotweiler"
             ></img>
             <ProjectName href="https://play.google.com/store/apps/details?id=com.nickgill.thewellapp">
-              The Well App Android
+              The Well App
             </ProjectName>
           </ProjectItem>
           <ProjectItem>
@@ -215,7 +215,7 @@ export default () => (
               alt="husky"
             ></img>
             <ProjectName href="https://github.com/gizmoGremlin/the_well_admin_dashboard">
-              The Well dashboard
+              Dashboard
             </ProjectName>
           </ProjectItem>
           <ProjectItem>
@@ -225,7 +225,7 @@ export default () => (
               alt="poodle"
             ></img>
             <ProjectName href="https://github.com/gizmoGremlin/venison">
-              Recipe app - Kotlin
+              Recipe app
             </ProjectName>
           </ProjectItem>
         </ProjectUl>
@@ -260,7 +260,9 @@ export default () => (
     <ContactContainerHolder>
       <ContactContainer id="contact">
         <h3>Get In Touch</h3>
-        <p class="leading">I Look forward to hearing from you!.</p>
+        <p style={{ marginBottom: "3%" }} class="leading">
+          I Look forward to hearing from you!.
+        </p>
         <StyledForm
           name="contact"
           method="post"
@@ -272,12 +274,36 @@ export default () => (
           <StyledInput type="text" placeholder="NAME" />
           <StyledInput type="email" placeholder="EMAIL" />
           <StyledTextArea textarea placeholder="YOUR MESSAGE"></StyledTextArea>
-          <ContactButton type="submit"> Send </ContactButton>
+          <SubmitContainer>
+            <StyledSubmit value="send" type="submit" />
+            <StyledSubmit value="reset" type="reset" />
+          </SubmitContainer>
         </StyledForm>
       </ContactContainer>
     </ContactContainerHolder>
   </GridContainer>
 )
+const SubmitContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`
+const StyledSubmit = styled.input`
+  background: none;
+  border: 2px solid var(--tertiary);
+  color: var(--tertiary);
+  padding: 6px 12px;
+  margin: 1%;
+  border-radius: 20px;
+  text-transform: uppercase;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.6);
+  display: inline-block;
+  &:hover {
+    color: black;
+    background: var(--tertiary);
+  }
+`
 const ContactContainerHolder = styled.div`
   grid-area: contact;
   display: flex;
@@ -304,19 +330,4 @@ const StyledTextArea = styled.textarea`
   margin: 10px 0;
   max-width: 100%;
   height: 200px;
-`
-const ContactButton = styled.a`
-  background: none;
-  border: 2px solid var(--tertiary);
-  color: var(--tertiary);
-  padding: 6px 12px;
-  border-radius: 20px;
-  text-transform: uppercase;
-  margin-top: 10px;
-  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.6);
-  display: inline-block;
-  &:hover {
-    color: black;
-    background: var(--tertiary);
-  }
 `
