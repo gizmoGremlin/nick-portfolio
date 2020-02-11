@@ -1,14 +1,14 @@
 import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
-import Husky from "./../images/single-husky.png"
+
 import Rotweiler from "./../images/rotweiler.png"
 import Husky2a from "./../images/husky2a.png"
 import FloppyDog from "./../images/floppy_dog.png"
 import SingleHuskySm from "./../images/SingleHuskySm.png"
 import GitIcon from "./../images/git_icon.png"
 
-import DogBone from "./../images/dogBoneFinalPurple.png"
+import DogBone from "./../images/DogBoneFinalPurple.png"
 if (typeof window !== "undefined") {
   // eslint-disable-next-line global-require
   require("smooth-scroll")('a[href*="#"]')
