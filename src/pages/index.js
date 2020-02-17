@@ -1,10 +1,10 @@
 import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
-
+import { FaAndroid } from "react-icons/fa"
+import { FaAppStore } from "react-icons/fa"
 import Rotweiler from "./../images/rotweiler.png"
-import Husky2a from "./../images/husky2a.png"
-import FloppyDog from "./../images/floppy_dog.png"
+
 import SingleHuskySm from "./../images/SingleHuskySm.png"
 import GitIcon from "./../images/git_icon.png"
 
@@ -17,20 +17,20 @@ if (typeof window !== "undefined") {
 const GridContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-areas:
     "header header img img"
     ". . img img"
     "prj prj prj prj"
     "skills skills skills skills"
-    ".  contact contact .";
+    "contact contact contact contact";
 
   @media screen and (min-width: 1200px) {
     grid-template-areas:
       ". header header img"
       "prj prj prj prj"
       "skills skills skills skills"
-      ".  contact contact .";
+      "contact contact contact contact";
   }
 `
 const SkillsContainer = styled.div`
@@ -38,6 +38,8 @@ const SkillsContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-bottom: 8vh;
+  margin-top: 8vh;
 `
 const SkillsAndImageContainer = styled.div`
   display: flex;
@@ -117,6 +119,7 @@ const ProjectContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: var(--secondary);
 `
 const ProjectsGrid = styled.div`
   display: flex;
@@ -163,11 +166,16 @@ const ListLink = props => (
     <Link to={props.to}>{props.children}</Link>
   </li>
 )
+const handleExtrenalNav = site => {
+  console.log(site)
+  console.log("here!!!!")
+  window.location.href = site
+}
 export default () => (
   <GridContainer>
     <NavContainer>
       <NavH1>Portfolio</NavH1>
-      <NavListContainer>
+      <NavListContainer id="top">
         <ListLink to="/#portfolio">Projects</ListLink>
         <ListLink to="/#skills">Skills</ListLink>
         <ListLink to="/#contact">Contact</ListLink>
@@ -195,7 +203,7 @@ export default () => (
       ></img>
     </ImageContainer>
     <ProjectContainer id="portfolio">
-      <h2>Some of my Projects</h2>
+      <h2>Try a Demo app</h2>
       <ProjectsGrid>
         <ProjectUl>
           <ProjectItem>
@@ -204,35 +212,43 @@ export default () => (
               src={Rotweiler}
               alt="rotweiler"
             ></img>
-            <ProjectName href="https://play.google.com/store/apps/details?id=com.nickgill.thewellapp">
+
+            <ProjectName
+              style={{ marginTop: "1.5vh" }}
+              href="https://play.google.com/store/apps/details?id=com.nickgill.thewellapp"
+            >
               The Well App
             </ProjectName>
-          </ProjectItem>
-          <ProjectItem>
-            <img
-              style={{ width: "70%", height: "70%" }}
-              src={Husky2a}
-              alt="husky"
-            ></img>
-            <ProjectName href="https://github.com/gizmoGremlin/the_well_admin_dashboard">
-              A Dashboard
-            </ProjectName>
-          </ProjectItem>
-          <ProjectItem>
-            <img
-              style={{ width: "70%", height: "70%" }}
-              src={FloppyDog}
-              alt="poodle"
-            ></img>
-            <ProjectName href="https://github.com/gizmoGremlin/venison">
-              A Recipe app
-            </ProjectName>
+            <div style={{ marginTop: "1.5vh" }}>
+              <FaAndroid
+                color="var(--tertiary)"
+                size="1.5em"
+                className="fa-flag"
+                style={{ marginRight: "1.5vh" }}
+                onClick={() =>
+                  handleExtrenalNav(
+                    "https://play.google.com/store/apps/details?id=com.nickgill.thewellapp"
+                  )
+                }
+              />
+              <FaAppStore
+                color="var(--tertiary)"
+                size="1.5em"
+                className="fa-flag"
+                onClick={() =>
+                  handleExtrenalNav(
+                    "https://play.google.com/store/apps/details?id=com.nickgill.thewellapp"
+                  )
+                }
+              />
+            </div>
           </ProjectItem>
         </ProjectUl>
       </ProjectsGrid>
       <RepoContainer>
+        <h2>Check out my repositories on Github</h2>
         <ProjectName href="https://github.com/gizmoGremlin">
-          Pinned Repositories
+          Source Code Repositories
         </ProjectName>
         <img
           src={GitIcon}
@@ -278,11 +294,20 @@ export default () => (
             <StyledSubmit value="send" type="submit" />
             <StyledSubmit value="reset" type="reset" />
           </SubmitContainer>
+          <BackToTopContainer style={{ padding: "7vh" }}>
+            <ListLink to="/#top">Back to Top</ListLink>
+          </BackToTopContainer>
         </StyledForm>
       </ContactContainer>
     </ContactContainerHolder>
   </GridContainer>
 )
+const BackToTopContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`
 const SubmitContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -310,10 +335,11 @@ const ContactContainerHolder = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  background: var(--secondary);
 `
 const RepoContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 5%;
@@ -322,12 +348,18 @@ const RepoContainer = styled.div`
 const StyledForm = styled.form``
 
 const StyledInput = styled.input`
-  width: 100%;
+  width: 90%;
   margin: 10px 0;
 `
 const StyledTextArea = styled.textarea`
-  width: 100%;
+  width: 90%;
   margin: 10px 0;
   max-width: 100%;
   height: 200px;
+`
+const TitleAndIconContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `
