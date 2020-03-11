@@ -3,8 +3,10 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 import { FaAndroid } from "react-icons/fa"
 import { FaAppStore } from "react-icons/fa"
-import Rotweiler from "./../images/rotweiler.png"
+import { FaReact } from "react-icons/fa"
 
+import Rotweiler from "./../images/rotweiler.png"
+import Dalmation from "./../images/dalmation.png"
 import SingleHuskySm from "./../images/SingleHuskySm.png"
 import GitIcon from "./../images/git_icon.png"
 
@@ -131,8 +133,8 @@ const ProjectsGrid = styled.div`
 const ProjectUl = styled.ul`
   display: flex;
 
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
 
   gap: 10px;
@@ -143,8 +145,10 @@ const ProjectItem = styled.li`
   justify-content: center;
   align-items: center;
   margin-left: 10px;
+  margin-bottom: 1vh;
   padding: 10px;
   background: #9893d8;
+  min-width: 340px;
 ` // background: #9893d8;
 const ProjectName = styled.a`
   color: #dddbff;
@@ -186,9 +190,9 @@ export default () => (
           <br /> and <br /> Developer
         </h2>
         <Leading>
-          Hi, I'm Nick. I'm a full-stack web and mobile developer. I specialize
-          in building web apps, cross-platform mobile Apps and native Android
-          Apps
+          Hi, I'm Nick. I'm a full-stack web and mobile developer. I build
+          professional, performant, maintainable software to your specification.
+          I specialize in web, cross-platform, and native Android applications.
         </Leading>
 
         <Button href="/#portfolio">view my work</Button>
@@ -208,7 +212,29 @@ export default () => (
         <ProjectUl>
           <ProjectItem>
             <img
-              style={{ width: "70%", height: "70%" }}
+              style={{ width: "40%", height: "40%" }}
+              alt="husky"
+              src={Dalmation}
+            ></img>
+            <ProjectName
+              style={{ marginTop: "1.5vh" }}
+              href="https://hungry-allen-0a816f.netlify.com/"
+            >
+              Foreman Project Manager
+            </ProjectName>
+            <FaReact
+              color="var(--tertiary)"
+              size="1.5em"
+              className="fa-flag"
+              style={{ marginLeft: "1.5vh", marginTop:"1.5vh" }}
+              onClick={() =>
+                handleExtrenalNav("https://hungry-allen-0a816f.netlify.com/")
+              }
+            />
+          </ProjectItem>
+          <ProjectItem>
+            <img
+              style={{ width: "40%", height: "40%" }}
               src={Rotweiler}
               alt="rotweiler"
             ></img>
@@ -224,14 +250,14 @@ export default () => (
                 color="var(--tertiary)"
                 size="1.5em"
                 className="fa-flag"
-                style={{ marginRight: "1.5vh" }}
+                style={{ marginLeft: "1.9vh" }}
                 onClick={() =>
                   handleExtrenalNav(
                     "https://play.google.com/store/apps/details?id=com.nickgill.thewellapp"
                   )
                 }
               />
-              <FaAppStore
+              {/* <FaAppStore
                 color="var(--tertiary)"
                 size="1.5em"
                 className="fa-flag"
@@ -240,7 +266,7 @@ export default () => (
                     "https://play.google.com/store/apps/details?id=com.nickgill.thewellapp"
                   )
                 }
-              />
+              /> */}
             </div>
           </ProjectItem>
         </ProjectUl>
@@ -342,7 +368,7 @@ const RepoContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 5%;
+  margin-top: 2%;
 `
 
 const StyledForm = styled.form``
