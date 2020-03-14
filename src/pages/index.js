@@ -1,5 +1,5 @@
 import React from "react"
-import styled from "styled-components"
+import styled , { keyframes }from "styled-components"
 import { Link } from "gatsby"
 import { FaAndroid } from "react-icons/fa"
 import { FaAppStore } from "react-icons/fa"
@@ -15,7 +15,16 @@ if (typeof window !== "undefined") {
   // eslint-disable-next-line global-require
   require("smooth-scroll")('a[href*="#"]')
 }
-
+const slideInFromLeft = keyframes`
+0% {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+100% {
+  transform: translateX(0);
+  opacity: 1;
+}
+`;
 const GridContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -65,7 +74,7 @@ const NavContainer = styled.div`
   margin-top: 60%;
   align-items: center;
   justify-content: flex-start;
-
+  animation: 1s ease-out 0s 1 ${slideInFromLeft};
   @media screen and (min-width: 1200px) {
     margin-top: 10%;
   }
