@@ -104,8 +104,11 @@ const ImageContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-
+  margin-top:-90vh;
   background: none;
+  @media screen and (min-width: 1000px) { 
+    margin-top:0vh;
+  }
 `
 const Button = styled.a`
   background: none;
