@@ -87,6 +87,7 @@ const WelcomeContainer = styled.div`
   align-items: center;
   justify-content: flex-start;
   margin-top: 15%;
+  height:100vh;
 `
 
 const ImageContainer = styled.div`
