@@ -200,8 +200,8 @@ export default () => (
           <br /> and <br /> Developer
         </h2>
         <Leading>
-          Hi, I'm Nick. I'm a full-stack web and mobile developer. I build
-          professional, performant, maintainable software to your specification.
+          Hi, I'm Nick, a full-stack web and mobile developer. I build
+          professional, performant, maintainable software.
           I specialize in web, cross-platform, and native Android applications.
         </Leading>
 
